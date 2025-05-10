@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/01-init.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/02-data.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/03-views.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ukim/finki/mk/lab1/model/views/AuthorsPerCountryView.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ukim/finki/mk/lab1/repository/AuthorsPerCountryViewRepository.java" dialect="PostgreSQL" />
+    <file url="PROJECT" dialect="PostgreSQL" />
+  </component>
+</project>
