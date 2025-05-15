@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ukim.finki.mk.lab1.dto.CreateAuthorDto;
 import ukim.finki.mk.lab1.dto.UpdateAuthorDto;
+import ukim.finki.mk.lab1.dto.UpdateCountryDto;
 import ukim.finki.mk.lab1.model.domain.Author;
 import ukim.finki.mk.lab1.projections.AuthorNamesProjection;
 import ukim.finki.mk.lab1.repository.AuthorRepository;
@@ -39,6 +40,11 @@ public class AuthorController {
     public ResponseEntity<?> listAllAuthors() {
             return ResponseEntity.status(HttpStatus.OK).body(authorApplicationService.findAll());
         }
+    @GetMapping("/{id}")
+    public ResponseEntity<UpdateAuthorDto> findById(@PathVariable Long id) {
+        return authorApplicationService.findById(id).map(author -> ResponseEntity.ok().body(author))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @Operation(summary = "Add a new author", description = "Creates a new author in the system using the provided data.")
     @PostMapping("/add")

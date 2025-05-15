@@ -66,11 +66,11 @@ public class JWTSecurityWebConfig {
                                         "/api/authors",
                                         "/api/books"
                                 )
-//                                .permitAll()
-                                .hasAnyRole("USER", "LIBRARIAN")
+                                .permitAll()
+//                                .hasAnyRole("USER", "LIBRARIAN")
                                 .anyRequest()
-//                                .permitAll()
-                                .hasRole("LIBRARIAN")
+                                .permitAll()
+//                                .hasRole("LIBRARIAN")
                 )
                 .sessionManagement(sessionManagementConfigurer ->
                         sessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS)

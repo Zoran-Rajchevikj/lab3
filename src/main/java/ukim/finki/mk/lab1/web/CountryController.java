@@ -26,6 +26,11 @@ public class CountryController {
         return countryApplicationService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<UpdateCountryDto> findById(@PathVariable Long id) {
+        return countryApplicationService.findById(id).map(country -> ResponseEntity.ok().body(country))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
     @Operation(summary = "Add a new country", description = "Creates a new country in the system using the provided data.")
     @PostMapping("/add")
     public ResponseEntity<UpdateCountryDto> addCountry(@RequestBody CreateCountryDto createCountryDto) {

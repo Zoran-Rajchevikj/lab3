@@ -83,5 +83,9 @@ public class BookController {
     public ResponseEntity<?> findAllBooksByAuthor(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(authorApplicationService.findBooksPerAuthorById(id));
     }
+    @GetMapping("/categories")
+    public ResponseEntity<?> findAllCategories() {
+     return ResponseEntity.ok(Category.values());
+    }
 
 }

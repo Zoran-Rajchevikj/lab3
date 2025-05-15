@@ -6,7 +6,7 @@ import ukim.finki.mk.lab1.model.domain.Country;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public record UpdateAuthorDto(Long id, String name, String surname, Long country) {
+public record UpdateAuthorDto(Long id, String name, String surname, Long countryId) {
     public static UpdateAuthorDto from(Author author) {
         return  new UpdateAuthorDto(author.getId(),author.getName(),author.getSurname(),author.getCountry().getId());
     }

@@ -38,16 +38,13 @@ public class AuthorApplicationServiceImpl implements AuthorApplicationService {
 
     @Override
     public Optional<UpdateAuthorDto> save(CreateAuthorDto authorDto) {
-        Optional<Country> country = countryService.findById(authorDto.country());
-        if(country.isPresent()) {
-            return authorService.save(authorDto.toAuthor(country.get())).map(UpdateAuthorDto::from);
-        }
-        return Optional.empty();
+        Optional<Country> country = countryService.findById(authorDto.countryId());
+        return country.flatMap(value -> authorService.save(authorDto.toAuthor(value)).map(UpdateAuthorDto::from));
     }
 
     @Override
     public Optional<UpdateAuthorDto> update(Long id, CreateAuthorDto authorDto) {
-        Optional<Country> country = countryService.findById(authorDto.country());
+        Optional<Country> country = countryService.findById(authorDto.countryId());
         return authorService.update(id,authorDto.toAuthor(country.orElse(null))).map(UpdateAuthorDto::from);
     }
 
